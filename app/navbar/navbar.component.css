@@ -1,0 +1,19 @@
+.dropdown {
+    float: right;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navbar {
+    background-color: #34608D;
+    color: #D8DAE7;
+    border-radius: 0;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: #D8DAE7;
+}

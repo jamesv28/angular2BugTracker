@@ -1,0 +1,22 @@
+/** --Colors --
+Tron Blue: #18CAE6
+Far Away Sky: #D8DAE7; <--white
+meanwhile: #050D10 <--black
+wipe out: #34608D <-- dark blue
+dead baby: #0D0C1C <-- darker black 
+another blude #5086BA 
+green: B8E978
+red: E99624
+faded Cyan #8EFCFF
+**/
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700');
+
+html,body {
+    background-color: #F5FAFA;
+    color: #050D10;
+    font-family: 'Rubik', sans-serif;
+}
+
+thead {
+    font-weight: 700;
+}

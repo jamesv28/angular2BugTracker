@@ -1,0 +1,13 @@
+.row:first-child {
+    margin-top: 50px;
+}
+
+.btn-outline-success {
+    color: #5086BA;
+    border-color: #5086BA;
+}
+
+.btn-outline-success:hover {
+    background-color: #5086BA;
+    color: #ffffff;
+}
