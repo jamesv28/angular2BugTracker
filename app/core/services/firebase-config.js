@@ -9,19 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var firebase_config_1 = require('./core/services/firebase-config');
-var AppComponent = (function () {
-    function AppComponent(service) {
-        this.service = service;
+var firebase = require('firebase');
+var constants_1 = require('../constants/constants');
+var firebaseConfigService = (function () {
+    function firebaseConfigService() {
+        this.configureApp();
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "<navbar></navbar>\n                <div class=\"container\">\n                    <router-outlet></router-outlet>\n               </div>"
-        }), 
-        __metadata('design:paramtypes', [firebase_config_1.firebaseConfigService])
-    ], AppComponent);
-    return AppComponent;
+    firebaseConfigService.prototype.configureApp = function () {
+        var app = firebase.initializeApp(constants_1.FIREBASE_CONFIG);
+        console.log('app', app);
+    };
+    firebaseConfigService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], firebaseConfigService);
+    return firebaseConfigService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.firebaseConfigService = firebaseConfigService;
+//# sourceMappingURL=firebase-config.js.map
