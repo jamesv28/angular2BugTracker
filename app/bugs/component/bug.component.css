@@ -11,3 +11,12 @@
     background-color: #5086BA;
     color: #ffffff;
 }
+
+.block {
+    margin: auto !important;
+    display: block;
+}
+
+h1,thead,tr,th,tbody,td {
+    color: #787878;
+}
