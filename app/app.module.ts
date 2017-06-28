@@ -4,10 +4,8 @@ import { CoreModule } from './core/core.module';
 
 // components
 import { AppComponent } from './app.component';
-import { BugListComponent } from './bugs/component/bug.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
-// modules 
+// modules  
 import { BugModule } from './bugs/bug.module';
 import { AppRouter } from './app-routes.module';
 @NgModule({
@@ -19,7 +17,6 @@ import { AppRouter } from './app-routes.module';
     ],
     declarations: [
         AppComponent,
-        BugListComponent,
         NavbarComponent
     ],
     bootstrap: [AppComponent]

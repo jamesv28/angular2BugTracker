@@ -13,9 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var core_module_1 = require('./core/core.module');
 // components
 var app_component_1 = require('./app.component');
-var bug_component_1 = require('./bugs/component/bug.component');
 var navbar_component_1 = require('./navbar/navbar.component');
-// modules 
+// modules  
 var bug_module_1 = require('./bugs/bug.module');
 var app_routes_module_1 = require('./app-routes.module');
 var AppModule = (function () {
@@ -31,7 +30,6 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                bug_component_1.BugListComponent,
                 navbar_component_1.NavbarComponent
             ],
             bootstrap: [app_component_1.AppComponent]

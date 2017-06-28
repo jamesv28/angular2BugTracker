@@ -11,6 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var shared_module_1 = require('../shared/shared.module');
 var bug_routes_module_1 = require('./bug-routes.module');
+var bug_detail_component_1 = require('./bug-detail/bug.detail.component');
+var bug_component_1 = require('./component/bug.component');
+var forms_1 = require('@angular/forms');
 // service
 var bugs_service_1 = require('./service/bugs.service');
 var BugModule = (function () {
@@ -20,9 +23,13 @@ var BugModule = (function () {
         core_1.NgModule({
             imports: [
                 shared_module_1.SharedModule,
-                bug_routes_module_1.BugRouterModule
+                bug_routes_module_1.BugRouterModule,
+                forms_1.ReactiveFormsModule
             ],
-            declarations: [],
+            declarations: [
+                bug_detail_component_1.BugDetailComponent,
+                bug_component_1.BugListComponent
+            ],
             exports: [],
             providers: [
                 bugs_service_1.BugService
