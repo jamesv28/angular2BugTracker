@@ -9,9 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var bugs_service_1 = require('../service/bugs.service');
 var BugListComponent = (function () {
-    function BugListComponent() {
+    function BugListComponent(bugService) {
+        this.bugService = bugService;
+        this.bugs = [];
     }
+    ;
+    BugListComponent.prototype.ngOnInit = function () {
+        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+        //Add 'implements OnInit' to the class.
+        this.getAddedBugs();
+    };
+    BugListComponent.prototype.getAddedBugs = function () {
+        var _this = this;
+        this.bugService.getAddedBugs()
+            .subscribe(function (bug) {
+            _this.bugs.push(bug);
+            console.log('bug', _this.bugs); // TODO remove this line when finished
+        }, function (err) {
+            console.error("no added bug");
+        });
+    };
     BugListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -19,7 +38,7 @@ var BugListComponent = (function () {
             templateUrl: 'bug.component.html',
             styleUrls: ['bug.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [bugs_service_1.BugService])
     ], BugListComponent);
     return BugListComponent;
 }());

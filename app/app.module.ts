@@ -20,7 +20,8 @@ import { AppRouter } from './app-routes.module';
     declarations: [
         AppComponent,
         BugListComponent,
-        NavbarComponent],
+        NavbarComponent
+    ],
     bootstrap: [AppComponent]
 })
 

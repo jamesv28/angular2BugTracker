@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var shared_module_1 = require('../shared/shared.module');
 var bug_routes_module_1 = require('./bug-routes.module');
+// service
+var bugs_service_1 = require('./service/bugs.service');
 var BugModule = (function () {
     function BugModule() {
     }
@@ -21,7 +23,10 @@ var BugModule = (function () {
                 bug_routes_module_1.BugRouterModule
             ],
             declarations: [],
-            exports: []
+            exports: [],
+            providers: [
+                bugs_service_1.BugService
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], BugModule);

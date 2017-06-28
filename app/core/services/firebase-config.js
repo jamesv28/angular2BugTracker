@@ -10,14 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var firebase = require('firebase');
+require('firebase/database');
 var constants_1 = require('../constants/constants');
 var firebaseConfigService = (function () {
     function firebaseConfigService() {
         this.configureApp();
+        this.configureDatabase();
     }
+    Object.defineProperty(firebaseConfigService.prototype, "database", {
+        get: function () {
+            return this._database;
+        },
+        enumerable: true,
+        configurable: true
+    });
     firebaseConfigService.prototype.configureApp = function () {
-        var app = firebase.initializeApp(constants_1.FIREBASE_CONFIG);
-        console.log('app', app);
+        firebase.initializeApp(constants_1.FIREBASE_CONFIG);
+    };
+    firebaseConfigService.prototype.configureDatabase = function () {
+        this._database = firebase.database();
     };
     firebaseConfigService = __decorate([
         core_1.Injectable(), 

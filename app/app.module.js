@@ -32,7 +32,8 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 bug_component_1.BugListComponent,
-                navbar_component_1.NavbarComponent],
+                navbar_component_1.NavbarComponent
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
