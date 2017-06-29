@@ -1,6 +1,6 @@
 .row:first-child {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 h1 {
   text-align: center;
@@ -46,6 +46,8 @@ thead,
 tr,
 th,
 tbody,
+label,
+span,
 td {
   color: #787878;
 }
@@ -60,4 +62,8 @@ table {
 tbody > tr:hover {
   cursor: pointer;
   background-color: #F0F0F0;
+}
+
+.form-check {
+  margin-bottom: 20px;
 }

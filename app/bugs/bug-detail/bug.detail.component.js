@@ -14,22 +14,26 @@ var bugs_service_1 = require('../service/bugs.service');
 var forbidden_validation_strings_1 = require('../../shared/validations/forbidden-validation.strings');
 var bug_model_1 = require('../model/bug.model');
 var BugDetailComponent = (function () {
-    function BugDetailComponent(service) {
+    function BugDetailComponent(formB, service) {
+        this.formB = formB;
         this.service = service;
         this.modalId = "bugModal";
-        this.currentBug = new bug_model_1.Bug(null, null, null, null, null, null, null, null);
+        this.currentBug = new bug_model_1.Bug(null, null, 1, 1, null, null, null, null);
     }
     BugDetailComponent.prototype.ngOnInit = function () {
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
         //Add 'implements OnInit' to the class.
         this.configureForm();
     };
-    BugDetailComponent.prototype.configureForm = function () {
-        this.bugForm = new forms_1.FormGroup({
-            title: new forms_1.FormControl(null, [forms_1.Validators.required, forbidden_validation_strings_1.forbiddenStringValidator(/puppy/i)]),
-            status: new forms_1.FormControl(1, forms_1.Validators.required),
-            severity: new forms_1.FormControl(1, forms_1.Validators.required),
-            description: new forms_1.FormControl(null, forms_1.Validators.required)
+    BugDetailComponent.prototype.configureForm = function (bug) {
+        if (bug) {
+            this.currentBug = bug;
+        }
+        this.bugForm = this.formB.group({
+            title: [this.currentBug.title, [forms_1.Validators.required, forbidden_validation_strings_1.forbiddenStringValidator(/puppy/i)]],
+            status: [this.currentBug.status, forms_1.Validators.required],
+            severity: [this.currentBug.severity, forms_1.Validators.required],
+            description: [this.currentBug.description, forms_1.Validators.required]
         });
     };
     BugDetailComponent.prototype.submitForm = function () {
@@ -49,6 +53,10 @@ var BugDetailComponent = (function () {
             status: 1,
             severity: 1
         });
+        this.cleanBug();
+    };
+    BugDetailComponent.prototype.cleanBug = function () {
+        this.currentBug = new bug_model_1.Bug(null, null, 1, 1, null, null);
     };
     __decorate([
         core_1.Input(), 
@@ -61,7 +69,7 @@ var BugDetailComponent = (function () {
             templateUrl: 'bug.detail.component.html',
             styleUrls: ['bug.detail.component.css']
         }), 
-        __metadata('design:paramtypes', [bugs_service_1.BugService])
+        __metadata('design:paramtypes', [forms_1.FormBuilder, bugs_service_1.BugService])
     ], BugDetailComponent);
     return BugDetailComponent;
 }());

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Form, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Form, FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { BugService } from '../service/bugs.service';
 import { forbiddenStringValidator } from '../../shared/validations/forbidden-validation.strings';
 import { Bug } from '../model/bug.model';
@@ -14,9 +14,9 @@ import { Bug } from '../model/bug.model';
 export class BugDetailComponent implements OnInit {
     private modalId = "bugModal";
     private bugForm: FormGroup;
-    @Input() currentBug = new Bug(null, null, null, null, null, null, null, null);
+    @Input() currentBug = new Bug(null, null, 1, 1, null, null, null, null);
 
-    constructor(private service: BugService) {
+    constructor(private formB: FormBuilder, private service: BugService) {
 
     }
     ngOnInit() {
@@ -25,12 +25,15 @@ export class BugDetailComponent implements OnInit {
         this.configureForm();
     }
 
-    configureForm() {
-        this.bugForm = new FormGroup({
-            title: new FormControl(null, [Validators.required, forbiddenStringValidator(/puppy/i)]),
-            status: new FormControl(1, Validators.required),
-            severity: new FormControl(1, Validators.required),
-            description: new FormControl(null, Validators.required)
+    configureForm(bug?: Bug) {
+         if(bug) {
+                this.currentBug = bug;
+            }
+        this.bugForm = this.formB.group({   
+            title: [this.currentBug.title, [Validators.required, forbiddenStringValidator(/puppy/i)]],
+            status: [this.currentBug.status, Validators.required],
+            severity: [this.currentBug.severity, Validators.required],
+            description: [this.currentBug.description, Validators.required]
         });
     }
 
@@ -54,6 +57,11 @@ export class BugDetailComponent implements OnInit {
             status: 1,
             severity: 1
         });
+        this.cleanBug();
+    }
+
+    cleanBug() {
+        this.currentBug = new Bug(null,null,1,1,null,null);
     }
 
 };

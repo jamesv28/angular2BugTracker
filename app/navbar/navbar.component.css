@@ -6,6 +6,7 @@
     ul {
         list-style-type: none;
         float: right;
+        margin-top: 10px;
     }
 
     .navbar {

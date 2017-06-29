@@ -17,6 +17,10 @@ var about_component_1 = require('../about/component/about.component');
 var forms_1 = require('@angular/forms');
 // service
 var bugs_service_1 = require('./service/bugs.service');
+var updateStatus_1 = require('./pipes/updateStatus');
+var timeConversion_1 = require('./pipes/timeConversion');
+//pipes
+var update_severity_pipe_1 = require('./pipes/update-severity.pipe');
 var BugModule = (function () {
     function BugModule() {
     }
@@ -30,7 +34,10 @@ var BugModule = (function () {
             declarations: [
                 bug_detail_component_1.BugDetailComponent,
                 bug_component_1.BugListComponent,
-                about_component_1.AboutComponent
+                about_component_1.AboutComponent,
+                update_severity_pipe_1.SeverityPipe,
+                updateStatus_1.UpdatePipe,
+                timeConversion_1.TimeConversion
             ],
             exports: [],
             providers: [

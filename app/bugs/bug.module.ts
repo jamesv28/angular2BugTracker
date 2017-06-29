@@ -7,6 +7,10 @@ import {AboutComponent} from '../about/component/about.component';
 import { ReactiveFormsModule } from '@angular/forms';
 // service
 import { BugService } from './service/bugs.service';
+import {UpdatePipe} from './pipes/updateStatus';
+import { TimeConversion } from './pipes/timeConversion'; 
+//pipes
+import {SeverityPipe} from './pipes/update-severity.pipe';
 @NgModule({
     imports: [
         SharedModule,
@@ -16,7 +20,10 @@ import { BugService } from './service/bugs.service';
     declarations: [
         BugDetailComponent,
         BugListComponent,
-        AboutComponent
+        AboutComponent,
+        SeverityPipe,
+        UpdatePipe,
+        TimeConversion
     ],
     exports: [],
     providers: [

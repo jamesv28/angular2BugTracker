@@ -8,7 +8,7 @@ export class Bug {
         public description: string,
         public createdBy: string,
         public updatedBy?: string,
-        public updatedDate?: string
+        public updatedDate?: number
 
     ) {}
 }
