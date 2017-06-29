@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
+var forbidden_validation_strings_1 = require('../../shared/validations/forbidden-validation.strings');
 var BugDetailComponent = (function () {
     function BugDetailComponent() {
         this.modalId = "bugModal";
@@ -21,10 +22,10 @@ var BugDetailComponent = (function () {
     };
     BugDetailComponent.prototype.configureForm = function () {
         this.bugForm = new forms_1.FormGroup({
-            title: new forms_1.FormControl(),
-            status: new forms_1.FormControl(1),
-            severity: new forms_1.FormControl(1),
-            description: new forms_1.FormControl()
+            title: new forms_1.FormControl(null, [forms_1.Validators.required, forbidden_validation_strings_1.forbiddenStringValidator(/puppy/i)]),
+            status: new forms_1.FormControl(1, forms_1.Validators.required),
+            severity: new forms_1.FormControl(1, forms_1.Validators.required),
+            description: new forms_1.FormControl(null, forms_1.Validators.required)
         });
     };
     BugDetailComponent.prototype.submitForm = function () {

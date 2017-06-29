@@ -13,6 +13,7 @@ var shared_module_1 = require('../shared/shared.module');
 var bug_routes_module_1 = require('./bug-routes.module');
 var bug_detail_component_1 = require('./bug-detail/bug.detail.component');
 var bug_component_1 = require('./component/bug.component');
+var about_component_1 = require('../about/component/about.component');
 var forms_1 = require('@angular/forms');
 // service
 var bugs_service_1 = require('./service/bugs.service');
@@ -28,7 +29,8 @@ var BugModule = (function () {
             ],
             declarations: [
                 bug_detail_component_1.BugDetailComponent,
-                bug_component_1.BugListComponent
+                bug_component_1.BugListComponent,
+                about_component_1.AboutComponent
             ],
             exports: [],
             providers: [

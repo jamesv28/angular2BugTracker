@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Form, FormGroup,FormControl} from '@angular/forms';
+import {Form, FormGroup,FormControl,Validators} from '@angular/forms';
+import {forbiddenStringValidator} from '../../shared/validations/forbidden-validation.strings';
 
 @Component({
     moduleId: module.id,
@@ -20,10 +21,10 @@ export class BugDetailComponent implements OnInit {
 
     configureForm() {
         this.bugForm = new FormGroup({
-            title: new FormControl(),
-            status: new FormControl(1),
-            severity: new FormControl(1),
-            description: new FormControl()
+            title: new FormControl(null,[Validators.required,forbiddenStringValidator(/puppy/i)]),
+            status: new FormControl(1,Validators.required),
+            severity: new FormControl(1,Validators.required),
+            description: new FormControl(null,Validators.required)
         });
     }
 

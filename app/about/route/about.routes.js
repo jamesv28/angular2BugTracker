@@ -10,26 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var bug_component_1 = require('./component/bug.component');
-var about_component_1 = require('../about/component/about.component');
-var BugRouterModule = (function () {
-    function BugRouterModule() {
+var about_component_1 = require('../component/about.component');
+var AboutRoutesModule = (function () {
+    function AboutRoutesModule() {
     }
-    BugRouterModule = __decorate([
+    AboutRoutesModule = __decorate([
         core_1.NgModule({
             imports: [
                 router_1.RouterModule.forChild([
-                    { path: '', redirectTo: 'bugs', pathMatch: 'full' },
-                    { path: 'bugs', component: bug_component_1.BugListComponent },
-                    { path: 'about', component: about_component_1.AboutComponent },
-                    { path: '**', redirectTo: 'bugs' }
+                    { path: 'about', component: about_component_1.AboutComponent }
                 ])
             ],
             exports: []
         }), 
         __metadata('design:paramtypes', [])
-    ], BugRouterModule);
-    return BugRouterModule;
+    ], AboutRoutesModule);
+    return AboutRoutesModule;
 }());
-exports.BugRouterModule = BugRouterModule;
-//# sourceMappingURL=bug-routes.module.js.map
+exports.AboutRoutesModule = AboutRoutesModule;
+;
+//# sourceMappingURL=about.routes.js.map
