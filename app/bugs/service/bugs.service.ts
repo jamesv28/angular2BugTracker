@@ -25,4 +25,19 @@ export class BugService {
                 })
         }); // end of observable
     }
+
+    addBug(bug: Bug) {
+        let newBugRef = this.bugsDbRef.push();
+        newBugRef.set({
+            title: bug.title,
+            status: bug.status,
+            severity: bug.severity,
+            description: bug.description,
+            createdBy: 'James',
+            createdDate: Date.now()
+
+        }).catch(err => {
+            console.error("there was an error pushing a new bug"); ß
+        });
+    }
 }

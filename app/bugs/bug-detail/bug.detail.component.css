@@ -1,21 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,700');
 #severityGroup {
-    margin-top: 10px;
-    padding-left: 0;
+  margin-top: 10px;
+  padding-left: 0;
 }
+
+.modal-head,
+.modal-footer,
+.modal-body,
+form {
+  background-color: #F5FAFA;
+  color: #383838;
+  font-family: 'Rubik', sans-serif;
+}
+
+.modal {
+  background: #E6DADA;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #274046, #E6DADA);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #274046, #E6DADA);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .modal-footer {
-    border: 0;
-    text-align: center;
-    padding-bottom: 4rem;
+  border: 0;
+  text-align: center;
+  padding-bottom: 4rem;
 }
 
 textarea.ng-invalid.ng-dirty {
-    border-color: #E99624;
-    transition: border-color 0.2s ease;
+  border-color: #E99624;
+  transition: border-color 0.2s ease;
 }
 
-#text-field.ng-invalid.ng-dirty{
-    border-color: #E99624;
-    transition: border-color 0.2s ease;
-    padding-left: 5px;
-
+#text-field.ng-invalid.ng-dirty {
+  border-color: #E99624;
+  transition: border-color 0.2s ease;
+  padding-left: 5px;
 }

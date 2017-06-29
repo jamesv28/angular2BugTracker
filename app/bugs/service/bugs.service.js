@@ -28,6 +28,20 @@ var BugService = (function () {
             });
         }); // end of observable
     };
+    BugService.prototype.addBug = function (bug) {
+        var newBugRef = this.bugsDbRef.push();
+        newBugRef.set({
+            title: bug.title,
+            status: bug.status,
+            severity: bug.severity,
+            description: bug.description,
+            createdBy: 'James',
+            createdDate: Date.now()
+        }).catch(function (err) {
+            console.error("there was an error pushing a new bug");
+            ß;
+        });
+    };
     BugService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [firebase_config_1.firebaseConfigService])

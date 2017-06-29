@@ -10,10 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
+var bugs_service_1 = require('../service/bugs.service');
 var forbidden_validation_strings_1 = require('../../shared/validations/forbidden-validation.strings');
+var bug_model_1 = require('../model/bug.model');
 var BugDetailComponent = (function () {
-    function BugDetailComponent() {
+    function BugDetailComponent(service) {
+        this.service = service;
         this.modalId = "bugModal";
+        this.currentBug = new bug_model_1.Bug(null, null, null, null, null, null, null, null);
     }
     BugDetailComponent.prototype.ngOnInit = function () {
         //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -30,7 +34,26 @@ var BugDetailComponent = (function () {
     };
     BugDetailComponent.prototype.submitForm = function () {
         console.log(this.bugForm);
+        this.addBug();
     };
+    BugDetailComponent.prototype.addBug = function () {
+        this.currentBug.title = this.bugForm.value['title'];
+        this.currentBug.status = this.bugForm.value['status'];
+        this.currentBug.severity = this.bugForm.value['severity'];
+        this.currentBug.description = this.bugForm.value['description'];
+        this.service.addBug(this.currentBug);
+        this.refreshForm();
+    };
+    BugDetailComponent.prototype.refreshForm = function () {
+        this.bugForm.reset({
+            status: 1,
+            severity: 1
+        });
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], BugDetailComponent.prototype, "currentBug", void 0);
     BugDetailComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -38,7 +61,7 @@ var BugDetailComponent = (function () {
             templateUrl: 'bug.detail.component.html',
             styleUrls: ['bug.detail.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [bugs_service_1.BugService])
     ], BugDetailComponent);
     return BugDetailComponent;
 }());
